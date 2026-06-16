@@ -1,0 +1,16 @@
+[Микросервисы-источники] 
+    (Заказы, Корзина, Маркетинг)
+           ↓
+      [API Gateway] – аутентификация, rate limiting
+           ↓
+ [Notification Orchestrator] – валидация, обогащение, сохранение
+           ↓
+     [Message Queue] (Kafka/RabbitMQ)
+           ↓
+  [Push Delivery Worker] (1..N экземпляров)
+           ↓
+    [Redis Cache] – кеш device token’ов
+           ↓
+    [APNs] / [FCM] – провайдеры push
+           ↓
+  [Мобильное приложение «Петрушка Зеленая»]
